@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Report creating</title>
+  <style>
+    .wrapper {
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100vw;
+      height: 100vh;
+    }
+
+
+
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+    }
+
+
+
+    .nav a {
+      text-align: center;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+      padding: .8em 1em calc(.8em + 3px);
+      border-radius: 3px;
+      background: rgb(64, 199, 129);
+      box-shadow: 0 -3px rgb(53, 167, 110) inset;
+      transition: 0.2s;
+      cursor: pointer;
+    }
+
+
+    .nav a:hover {
+      background: rgb(53, 167, 110);
+    }
+
+    .nav a:active {
+      background: rgb(33, 147, 90);
+      box-shadow: 0 3px rgb(33, 147, 90) inset;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="body-content">
+      <div th:each="report : ${reports}">
+
+        <a th:href="@{/payment/showReport/{id}(id=${report.getId()})}" th:text="${report.getId}">id</a>
+        <a th:text="${report.getFromDate}">from date</a>
+        <a th:text=" to ">delimiter</a>
+        <a th:text="${report.getToDate}">to date</a>
+      </div>
+
+      <div class="nav">
+
+        <a th:href="@{/payment}">Вернуться на главную</a>
+
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>

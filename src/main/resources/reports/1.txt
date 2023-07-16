@@ -1,0 +1,12 @@
+Дата ОТ: 2023-01-01
+Дата ДО: 2023-06-07
+
+Payment(id=7, amount=554.00, date=2023-05-14, status=EXECUTED)
+Payment(id=9, amount=2218.00, date=2023-06-02, status=EXECUTED)
+Payment(id=2, amount=2945.01, date=2023-01-05, status=EXECUTED)
+Payment(id=4, amount=5362.00, date=2023-01-11, status=EXECUTED)
+Payment(id=8, amount=-5158.00, date=2023-05-26, status=REJECTED)
+Payment(id=6, amount=4433.90, date=2023-05-11, status=REJECTED)
+Payment(id=5, amount=5439.00, date=2023-05-01, status=REJECTED)
+Payment(id=1, amount=7102.00, date=2023-01-03, status=REJECTED)
+Payment(id=3, amount=9374.00, date=2023-01-24, status=REJECTED)

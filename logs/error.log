@@ -1,0 +1,24 @@
+2023-07-16 18:41:41 [main] INFO  r.m.p.PaymentServiceApplication -
+                Starting PaymentServiceApplication using Java 20 with PID 11176 (C:\Users\Public\PaymentService\target\classes started by Sergey in C:\Users\Public\paymentService)
+2023-07-16 18:41:41 [main] DEBUG r.m.p.PaymentServiceApplication -
+                Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-16 18:41:41 [main] INFO  r.m.p.PaymentServiceApplication -
+                No active profile set, falling back to 1 default profile: "default"
+2023-07-16 18:42:01 [main] INFO  r.m.p.PaymentServiceApplication -
+                Started PaymentServiceApplication in 20.822 seconds (process running for 22.289)
+2023-07-16 18:43:15 [main] INFO  r.m.p.PaymentServiceApplication -
+                Starting PaymentServiceApplication using Java 20 with PID 6952 (C:\Users\Public\PaymentService\target\classes started by Sergey in C:\Users\Public\paymentService)
+2023-07-16 18:43:15 [main] DEBUG r.m.p.PaymentServiceApplication -
+                Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-16 18:43:15 [main] INFO  r.m.p.PaymentServiceApplication -
+                No active profile set, falling back to 1 default profile: "default"
+2023-07-16 18:43:30 [main] INFO  r.m.p.PaymentServiceApplication -
+                Started PaymentServiceApplication in 16.526 seconds (process running for 18.026)
+2023-07-16 18:43:49 [main] INFO  r.m.p.PaymentServiceApplication -
+                Starting PaymentServiceApplication using Java 20 with PID 2768 (C:\Users\Public\PaymentService\target\classes started by Sergey in C:\Users\Public\paymentService)
+2023-07-16 18:43:49 [main] DEBUG r.m.p.PaymentServiceApplication -
+                Running with Spring Boot v3.1.1, Spring v6.0.10
+2023-07-16 18:43:49 [main] INFO  r.m.p.PaymentServiceApplication -
+                No active profile set, falling back to 1 default profile: "default"
+2023-07-16 18:44:06 [main] INFO  r.m.p.PaymentServiceApplication -
+                Started PaymentServiceApplication in 17.807 seconds (process running for 19.297)
