@@ -9,7 +9,7 @@ COPY target/paymentService-0.0.1-SNAPSHOT.jar paymentService.jar
 # Установка переменных окружения для настройки PostgreSQL
 ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=1234
-ENV POSTGRES_DB=mydatabase
+ENV POSTGRES_DB=postgres
 
 # Открытие порта для сервиса платежей
 EXPOSE 8080
