@@ -1,6 +1,7 @@
 package ru.martinov.paymentService.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -10,6 +11,7 @@ import ru.martinov.paymentService.services.PaymentService;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.concurrent.CompletableFuture;
 
 @Controller
 @RequestMapping("/payment")
@@ -35,17 +37,18 @@ public class PaymentController {
     }
 
     //добавление платежа
+    @Async
     @PostMapping("/isAdditionSuccess")
-    public String addPayment(@RequestParam(value = "amount", defaultValue = "0") BigDecimal amount,
-                             Model model) {
-
-        if (paymentService.addPayment(amount)) {
-            model.addAttribute("success", "EXECUTED");
-        } else {
-            model.addAttribute("success", "REJECTED");
-        }
-
-        return "isAdditionSuccess";
+    public CompletableFuture<String> addPayment(@RequestParam(value = "amount", defaultValue = "0") BigDecimal amount,
+                                                Model model) {
+        return CompletableFuture.supplyAsync(() -> {
+            if (paymentService.addPayment(amount)) {
+                model.addAttribute("success", "EXECUTED");
+            } else {
+                model.addAttribute("success", "REJECTED");
+            }
+            return "isAdditionSuccess";
+        });
     }
 
     //ввод дат для отчета
@@ -55,44 +58,52 @@ public class PaymentController {
     }
 
     //создание отчета
+    @Async
     @PostMapping("/isReportCreating")
-    public String creatingReport(@RequestParam(value = "fromDate", defaultValue = "0001-01-01") LocalDate fromDate,
-                                 @RequestParam(value = "toDate", defaultValue = "0001-01-01") LocalDate toDate,
-                                 Model model) {
+    public CompletableFuture<String> creatingReport(@RequestParam(value = "fromDate", defaultValue = "0001-01-01") LocalDate fromDate,
+                                                    @RequestParam(value = "toDate", defaultValue = "0001-01-01") LocalDate toDate,
+                                                    Model model) {
 
-        int reportId = paymentService.createReport(fromDate, toDate);
+        return CompletableFuture.supplyAsync(() -> {
+            int reportId = paymentService.createReport(fromDate, toDate);
 
-        if (reportId < 0) {
-            model.addAttribute("id", "Ошибка создания");
+            if (reportId < 0) {
+                model.addAttribute("id", "Ошибка создания");
 
-        } else {
-            model.addAttribute("id", reportId);
-        }
-
-        return "isCreationSuccess";
+            } else {
+                model.addAttribute("id", reportId);
+            }
+            return "isCreationSuccess";
+        });
     }
 
     //вывод списка отчетов из БД и предоставление ссылок на них
+    @Async
     @GetMapping("/enterReportId")
-    public String enterReportId(Model model) {
+    public CompletableFuture<String> enterReportId(Model model) {
 
-        List<Report> reportsList = paymentService.getReportsList();
+        return CompletableFuture.supplyAsync(() -> {
+            List<Report> reportsList = paymentService.getReportsList();
 
-        if (reportsList == null) {
-            model.addAttribute("reports", "Нет отчетов для получения");
-            return "noReportsToDisplay";
-        }
+            if (reportsList == null) {
+                model.addAttribute("reports", "Нет отчетов для получения");
+                return "noReportsToDisplay";
+            }
 
-        model.addAttribute("reports", reportsList);
-        return "enterReportId";
+            model.addAttribute("reports", reportsList);
+            return "enterReportId";
+        });
     }
 
     //вывод страницы выбранного отчета
+    @Async
     @GetMapping("/showReport/{id}")
-    public String showReport(@PathVariable("id") int id, Model model) {
+    public CompletableFuture<String> showReport(@PathVariable("id") int id, Model model) {
 
-        model.addAttribute("report", paymentService.showReportById(id));
+        return CompletableFuture.supplyAsync(() -> {
+            model.addAttribute("report", paymentService.showReportById(id));
 
-        return "showReport";
+            return "showReport";
+        });
     }
 }

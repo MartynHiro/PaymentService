@@ -18,6 +18,7 @@
 3. Lombok
 4. PostgreSQL (DBeaver)
 5. Thymeleaf
+6. Асинхронность
 				
 
 
