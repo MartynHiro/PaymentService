@@ -1,0 +1,7 @@
+version: '3'
+services:
+  paymentservice1:
+    image: 'paymentservice:latest'
+    container_name: newApp
+    ports:
+      - 8080:8080

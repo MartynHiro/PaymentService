@@ -36,7 +36,7 @@ public class PaymentController {
 
     //добавление платежа
     @PostMapping("/isAdditionSuccess")
-    public String addPayment(@RequestParam(value = "amount", defaultValue = "-1") BigDecimal amount,
+    public String addPayment(@RequestParam(value = "amount", defaultValue = "0") BigDecimal amount,
                              Model model) {
 
         if (paymentService.addPayment(amount)) {
