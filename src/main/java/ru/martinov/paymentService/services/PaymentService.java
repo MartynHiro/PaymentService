@@ -58,7 +58,7 @@ public class PaymentService {
             payment = new Payment(amount, LocalDate.now(), "EXECUTED");
             flag = true;
         }
-
+//TODO определиться нужен ли lock, или TransactionalIsolationLevels? 
         lock.writeLock().lock();
         try {
             paymentRepository.save(payment);
