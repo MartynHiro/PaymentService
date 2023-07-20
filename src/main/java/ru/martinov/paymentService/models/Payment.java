@@ -21,7 +21,7 @@ public class Payment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private int id;
-
+//TODO добавить валидацию на поля
     @Column(name = "amount")
     private BigDecimal amount;
 
