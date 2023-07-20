@@ -62,7 +62,7 @@ public class PaymentService {
         lock.writeLock().lock();
         try {
             paymentRepository.save(payment);
-
+//TODO подумать о  ExceptionHandler'ах
         } catch (TransactionSystemException e) {
             log.debug("Ошибка транзакции создания отчета в методе addPayment");
             e.printStackTrace();
