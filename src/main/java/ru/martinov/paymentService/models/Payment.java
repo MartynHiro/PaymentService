@@ -8,14 +8,14 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-
+ 
 //сущность платежа
 @Data
 @NoArgsConstructor
 @Entity
 @Table(name = "Payments")
 public class Payment {
-
+//TODO поменять на long id?
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
