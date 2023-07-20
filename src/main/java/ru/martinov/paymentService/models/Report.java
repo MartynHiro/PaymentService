@@ -20,7 +20,7 @@ public class Report {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Setter(AccessLevel.NONE)
     private int id;
-
+//TODO добавить валидацию на поля
     @Column(name = "from_date")
     private LocalDate fromDate;
 
