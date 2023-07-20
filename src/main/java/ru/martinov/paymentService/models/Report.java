@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "Reports")
 public class Report {
-
+//TODO поменять на long id?
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
