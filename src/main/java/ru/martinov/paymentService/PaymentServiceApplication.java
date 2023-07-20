@@ -15,7 +15,7 @@ public class PaymentServiceApplication {
     public static void main(String[] args) {
         SpringApplication.run(PaymentServiceApplication.class, args);
     }
-
+//TODO вынести bean в @Configuration? 
     @Bean
     public Executor getAsyncExecutor() {
         ThreadPoolTaskExecutor executor = new ThreadPoolTaskExecutor();
